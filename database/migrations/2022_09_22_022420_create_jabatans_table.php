@@ -14,9 +14,10 @@ class CreateJabatansTable extends Migration
     public function up()
     {
         Schema::create('ref_jabatan', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
+
             $table->string('name', 50);
-            $table->integer('id_unit_kerja');
+            $table->unsignedBigInteger('id_unit_kerja');
             $table->timestamps();
 
             $table->foreign('id_unit_kerja')->references('id')->on('ref_unit_kerja');

@@ -14,12 +14,12 @@ class CreatePegawaisTable extends Migration
     public function up()
     {
         Schema::create('ref_pegawai', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('nik', 50);
             $table->string('name');
             $table->string('email', 50);
             $table->text('address');
-            $table->integer('id_jabatan');
+            $table->unsignedBigInteger('id_jabatan');
             $table->integer('jenis_kelamin');
             $table->timestamps();
 

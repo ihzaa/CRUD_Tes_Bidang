@@ -2,13 +2,15 @@
 
 namespace App\Models\Reference;
 
+use App\Traits\CanGetTableNameStatically;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Jabatan extends Model
 {
-    use HasFactory;
+    use HasFactory, CanGetTableNameStatically;
     protected $table = 'ref_jabatan';
+    protected $guarded = [];
 
     public function unit_kerja()
     {

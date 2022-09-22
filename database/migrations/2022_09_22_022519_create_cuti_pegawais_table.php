@@ -14,8 +14,8 @@ class CreateCutiPegawaisTable extends Migration
     public function up()
     {
         Schema::create('trans_cuti_pegawai', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('id_pegawai');
+            $table->id();
+            $table->unsignedBigInteger('id_pegawai');
             $table->date('tanggal_awal_cuti');
             $table->date('tanggal_akhir_cuti');
             $table->text('perihal_cuti');
