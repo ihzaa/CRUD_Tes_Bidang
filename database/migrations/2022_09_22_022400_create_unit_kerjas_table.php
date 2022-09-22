@@ -13,8 +13,9 @@ class CreateUnitKerjasTable extends Migration
      */
     public function up()
     {
-        Schema::create('unit_kerjas', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ref_unit_kerja', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->string('name', 50);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateUnitKerjasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unit_kerjas');
+        Schema::dropIfExists('ref_unit_kerja');
     }
 }

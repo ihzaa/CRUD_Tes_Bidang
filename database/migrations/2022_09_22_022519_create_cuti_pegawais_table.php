@@ -13,9 +13,15 @@ class CreateCutiPegawaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuti_pegawais', function (Blueprint $table) {
-            $table->id();
+        Schema::create('trans_cuti_pegawai', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->integer('id_pegawai');
+            $table->date('tanggal_awal_cuti');
+            $table->date('tanggal_akhir_cuti');
+            $table->text('perihal_cuti');
             $table->timestamps();
+
+            $table->foreign('id_pegawai')->references('id')->on('ref_pegawai');
         });
     }
 
@@ -26,6 +32,6 @@ class CreateCutiPegawaisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuti_pegawais');
+        Schema::dropIfExists('trans_cuti_pegawai');
     }
 }

@@ -13,9 +13,13 @@ class CreateJabatansTable extends Migration
      */
     public function up()
     {
-        Schema::create('jabatans', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ref_jabatan', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->string('name', 50);
+            $table->integer('id_unit_kerja');
             $table->timestamps();
+
+            $table->foreign('id_unit_kerja')->references('id')->on('ref_unit_kerja');
         });
     }
 
@@ -26,6 +30,6 @@ class CreateJabatansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jabatans');
+        Schema::dropIfExists('ref_jabatan');
     }
 }
