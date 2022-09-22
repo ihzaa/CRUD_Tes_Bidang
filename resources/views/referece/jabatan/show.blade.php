@@ -16,6 +16,10 @@
                             <td>{{ $data['obj']->name }}</td>
                         </tr>
                         <tr>
+                            <th>Unit Kerja</th>
+                            <td>{{ $data['obj']->unit_kerja->name }}</td>
+                        </tr>
+                        <tr>
                             <th>Created At</th>
                             <td>{{ $data['obj']->created_at }}</td>
                         </tr>
@@ -29,9 +33,9 @@
                     <h3>Aksi</h3>
                 </div>
                 <div class="card-body">
-                    <a class="btn btn-success mb-2" href="{{ route('unit_kerja.edit', ['id' => $data['obj']->id]) }}"><i
+                    <a class="btn btn-success mb-2" href="{{ route('jabatan.edit', ['id' => $data['obj']->id]) }}"><i
                             class="fas fa-edit"></i></a>
-                    <form action="{{ route('unit_kerja.delete', ['id' => $data['obj']->id]) }}"
+                    <form action="{{ route('jabatan.delete', ['id' => $data['obj']->id]) }}"
                         onsubmit="return confirm('Yakin hapus?')" method="POST">
                         @csrf
                         @method('DELETE')

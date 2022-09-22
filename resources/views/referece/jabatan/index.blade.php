@@ -9,7 +9,7 @@
 @section('content')
     <div class="row mb-3">
         <div class="col-md-12">
-            <a class="btn btn-primary" href="{{ route('unit_kerja.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
+            <a class="btn btn-primary" href="{{ route('jabatan.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
                 Tambah</a>
         </div>
     </div>
@@ -18,7 +18,6 @@
             <table class="table table-bordered table-striped" id="main-table">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>Nama</th>
                         <th>Aksi</th>
                     </tr>
@@ -37,7 +36,7 @@
             $("#main-table").DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": '{{ route('unit_kerja.datatables') }}',
+                "ajax": '{{ route('jabatan.datatables') }}',
                 "columns": [{
                         "data": "name"
                     },

@@ -9,6 +9,7 @@ use App\Utils\FlashMessageHelper;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use DataTables;
 
 class JabatanController extends Controller
 {
@@ -37,7 +38,8 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', Rule::unique(Jabatan::getTableName())]
+            'name' => ['required', Rule::unique(Jabatan::getTableName())],
+            'id_unit_kerja' => ['required']
         ]);
 
         $storedData = Jabatan::create($validated);
